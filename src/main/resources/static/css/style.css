@@ -1,0 +1,74 @@
+body{
+	background-color: #D4F1F7;
+	font-family: Arial, Helvetica, sans-serif;
+	width:100%;
+	height:100%;
+}
+.maincontainer{
+	background-color: #D4F1F7;
+	font-family: Arial, Helvetica, sans-serif;
+	width:100%;
+	height:100%;
+}
+
+.dropdown-content {
+    display: block;
+    position: relative;
+    background-color: white;
+    width: 190px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 5px 5px;
+    text-decoration: none;
+    display: block;
+    line-height:0.6;
+}
+
+.dropdown-content input {
+    color: black;
+    padding: 15px 15px;
+    display: block;
+    float: left;
+}
+
+.dropdown-content a:hover {background-color: #1DCDF1}
+
+
+h3{
+	color: #1DCDF1;
+}
+
+.btn {
+    background-color: #1DCDF1;
+	color: white;
+    font-size: 16px;
+}
+
+#panel1 {
+  width: 400px;
+  height:auto;
+  float: left;
+}
+
+#panel2 {
+  width: 400px;
+  height:auto;
+  float:left;
+}
+
+#panel3 {
+  width: 400px;
+  height:auto;
+  float:left;
+}
+#flaglist {
+  font-size:35px;
+}
+#countrylist {
+  line-height:2;
+  padding-left:20px;
+  padding-right:20px;
+  white-space:nowrap;
+}

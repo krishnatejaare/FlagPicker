@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="/js/app.js"></script>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="maincontainer">
+
+	<h3 align="center" >Flag Picker</h3>
+	<p align="center">This app will help you to learn flags around the world in 3 steps.</p>
+
+	<div id="panel1" align="center">
+	<form id="form1">
+   		<h3 align="center">Step 1</h3>
+		<p align="center">Select a Continent</p>
+		<input id="input1" type="text" size="30" onclick="getAllContinents()" onkeyup="searchContinent(this.value)">
+		<div class="dropdown-content">
+			<div id="livesearch"></div>
+		</div>
+
+		<div id="responseText1"></div>
+		<div id="responseText2"></div>
+	</form>
+	</div>
+
+	<div id="panel2" align="center" hidden="" >
+	<form id="form2">
+		<h3 align="center">Step 2</h3>
+		<p align="center">Now, Select a Country</p>
+		<input id="input2" type="text" size="30"  onclick="getCountries(event)">
+		<div class="dropdown-content">
+			<div id="countrylist"></div>
+		</div>
+	</form>
+	</div>
+
+	<div id="panel3" align="center" hidden="">
+	<form id="form3">
+		<h3 align="center">Step 3</h3>
+		<p align="center">Selected Flags</p>
+		<div id="flaglist"></div>
+		<button type="button" class="btn" onclick="clearAll(event)">Clear flags</button>
+	</form>
+	</div>
+</div>
+
+<script>
+document.getElementById("livesearch").addEventListener("click", function(e) {
+
+	e.preventDefault();
+	document.getElementById("input1").value =  e.target.innerText;
+
+	var text1 = '<p align="center">' + "You Selected" + '</p>'
+
+	var x = document.getElementById("panel2");
+	x.style.display = "block";
+
+	document.getElementById("livesearch").innerHTML = "";
+	document.getElementById("responseText1").innerHTML =  text1;
+	document.getElementById("responseText2").innerHTML = '<h3 align="center"> ' + e.target.innerText + '</h3>';
+});
+
+document.getElementById("input2").addEventListener("click", function(e) {
+	document.getElementById("input1").value = "";
+	var x = document.getElementById("panel3");
+	x.style.display = "block";
+});
+
+document.getElementById("countrylist").addEventListener("change", function(e) {
+	var flag = e.target.value;
+	document.getElementById("flaglist").innerHTML += flag;
+
+});
+
+</script>
+
+</body>
+</html>
