@@ -4,3 +4,15 @@ Can execute this maven project by building:
  Now start running the main method in /src/main/java/com/asm/FlagPicker/FlagPickerApplication.java:
 
  Now open the localhost:8080
+ 
+ 
+ 
+ I have used:
+ CSS, HTML and JavaScript for front end.
+ 
+ I have used Spring Boot for the back end.
+ 
+ In Backend:
+ I have used two models one for CountryFlag and Continent.
+ I have used a Controller to map the URL's and render the response.
+ I have used a service class to hold the logic.
