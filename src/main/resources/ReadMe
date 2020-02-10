@@ -1,0 +1,7 @@
+
+Can execute this project by building:
+mvn clean package -DskipTests=true
+
+Now start running the main method in /src/main/java/com/asm/FlagPicker/FlagPickerApplication.java:
+
+Now open the localhost:8080
