@@ -10,17 +10,32 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.asm.FlagPicker.model.Continent;
 import com.asm.FlagPicker.model.CountryFlag;
-
 @Controller
 public class FlagPickerController {
 
 	private static Logger logger = Logger.getLogger(FlagPickerController.class);
+	private static FlagPickerController INSTANCE;
+	private static FlagPickerService flagPickerService;
+
+	public static FlagPickerController getInstance() {
+		if (INSTANCE == null) {
+			synchronized (FlagPickerController.class) {
+				if (INSTANCE == null) {
+					logger.info("FlagPickerController instance created");
+					INSTANCE = new FlagPickerController();
+				}
+			}
+		}
+		return INSTANCE;
+	}
+
+	public static void initRefs(FlagPickerService flagPickerServiceRef){
+		flagPickerService = flagPickerServiceRef;
+  }
 
 	@Autowired
-	private FlagPickerService flagPickerService;
 
 	@GetMapping(path="/")
 	public String index()

@@ -1,5 +1,6 @@
 package com.asm.FlagPicker.service;
 
+import com.asm.FlagPicker.controller.FlagPickerController;
 import com.asm.FlagPicker.model.Continent;
 import com.asm.FlagPicker.model.CountryFlag;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,6 +22,16 @@ import org.springframework.stereotype.Component;
 public class FlagPickerService {
 
 	private static Logger logger = Logger.getLogger(FlagPickerService.class);
+	public static FlagPickerController flagPickerController;
+
+	public FlagPickerService() {
+		initFlagPickerController();
+	}
+
+	private void initFlagPickerController() {
+		flagPickerController = FlagPickerController.getInstance();
+		flagPickerController.initRefs(this);
+	}
 
 	private static List<Continent> list = new ArrayList<>();
 
@@ -29,11 +40,10 @@ public class FlagPickerService {
 		logger.debug("Begin Service getContinentList()");
 		try
 		{
-			if ( list == null || list.isEmpty() )
+			if (list == null || list.isEmpty() )
 			{
 			    list = fileReader();
 			}
-
 			logger.debug("Continents : " + list);
 		}
 		catch(Exception ex)
@@ -104,18 +114,16 @@ public class FlagPickerService {
 			{
 				list = getContinents();
 			}
-			for ( Continent continent : list )
-			{
-				if ( continent.getContinent().equalsIgnoreCase(continentName))
-				{
-					countriesList = continent.getCountries();
-					break;
-				}
+			Continent filteredContinent = list.stream()
+					.filter(continent -> continent.getContinent().toLowerCase().contains(continentName.toLowerCase())).findAny().orElse(null);
+			if (filteredContinent!=null) {
+				countriesList = filteredContinent.getCountries();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return countriesList;
 	}
+
 
 }
