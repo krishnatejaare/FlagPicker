@@ -1,0 +1,58 @@
+
+********NoSQL:***************
+Key is Continent
+Value is List[CountryObject] which inturn contains objects like
+	CountryName:
+	CountryFlag:
+
+ex:
+Key:Asia
+Value: CountryObject
+	CountryName: India
+	CountryFlag: Indian Flag
+	
+	
+{
+  "FlagPicker" : {
+    "Asia" : [
+    {
+      "CountryName" : "India",
+      "CountryFlag" : Indian Flag
+    },
+    {
+      "CountryName" : "Pakistan",
+      "CountryFlag" : Pakistan Flag
+    }
+    ]
+  }
+   "America": [
+    {
+      "CountryName" : "Canada",
+      "CountryFlag" : Canada Flag
+    },
+    {
+      "CountryName" : "USA",
+      "CountryFlag" : USA Flag
+    }
+    ]
+}   
+
+
+******** SQL Schema:********
+
+We use 2 Tables:
+ Continent
+ Country 
+
+Continent Table:
+Continent   Country
+Asia		India
+Asia		Pakistan
+America		USA
+America		Canada
+
+Country Table:
+India 		Indian Flag
+Pakistan	Pakistan Flag
+USA			USA Flag
+Canada		Canadian Flag
