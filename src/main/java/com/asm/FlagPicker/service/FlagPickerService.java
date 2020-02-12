@@ -23,6 +23,7 @@ public class FlagPickerService {
 
 	private static Logger logger = Logger.getLogger(FlagPickerService.class);
 	public static FlagPickerController flagPickerController;
+	private static List<Continent> list = new ArrayList<>();
 
 	public FlagPickerService() {
 		initFlagPickerController();
@@ -33,8 +34,9 @@ public class FlagPickerService {
 		flagPickerController.initRefs(this);
 	}
 
-	private static List<Continent> list = new ArrayList<>();
-
+	/**
+	 * For getting the list of Continents
+	 */
 	public List<Continent> getContinents()
 	{
 		logger.debug("Begin Service getContinentList()");
@@ -54,6 +56,9 @@ public class FlagPickerService {
 		return list;
 	}
 
+	/**
+	 * Reading the continents.json file
+	 */
 	private List<Continent> fileReader()
 	{
 		List<Continent> continentList = new ArrayList<>();
@@ -87,6 +92,9 @@ public class FlagPickerService {
 		return continentList;
 	}
 
+	/**
+	 * searching the continent in the list of Continents
+	 */
 	public List<Continent> searchContinent(String searchString)
 	{
 		List<Continent> filteredList = new ArrayList<>();
@@ -106,6 +114,9 @@ public class FlagPickerService {
 		return filteredList;
 	}
 
+	/**
+	 * Getting the the countries of a Continent
+	 */
 	public List<CountryFlag> getCountriesForContinent(String continentName)
 	{
 		List<CountryFlag> countriesList = new ArrayList<>();
@@ -124,6 +135,5 @@ public class FlagPickerService {
 		}
 		return countriesList;
 	}
-
 
 }
