@@ -19,6 +19,9 @@ public class FlagPickerController {
 	private static FlagPickerController INSTANCE;
 	private static FlagPickerService flagPickerService;
 
+	/**
+	 * Getting the instance of FlagPickerController
+	 */
 	public static FlagPickerController getInstance() {
 		if (INSTANCE == null) {
 			synchronized (FlagPickerController.class) {
@@ -30,7 +33,9 @@ public class FlagPickerController {
 		}
 		return INSTANCE;
 	}
-
+	/**
+	 * Passing the FlagPickerService reference
+	 */
 	public static void initRefs(FlagPickerService flagPickerServiceRef){
 		flagPickerService = flagPickerServiceRef;
   }
@@ -44,6 +49,9 @@ public class FlagPickerController {
 		return "index";
 	}
 
+	/**
+	 * Rest api endpoint for getting the list of Continents
+	 */
 	@GetMapping(path="/continents")
 	@ResponseBody
 	public List<Continent> getAllContinents(ModelMap model)
@@ -53,6 +61,9 @@ public class FlagPickerController {
 		return allContinents;
 	}
 
+	/**
+	 * Rest api endpoint for searching the continent in the list of Continents
+	 */
 	@GetMapping(path="/continents/{search}")
 	@ResponseBody
 	public List<Continent> searchContinents(@PathVariable String search)
@@ -60,6 +71,9 @@ public class FlagPickerController {
 		return flagPickerService.searchContinent(search);
 	}
 
+	/**
+	 * Rest api endpoint for getting the countries of a Continent
+	 */
 	@GetMapping(path="/continent/{continentName}/countries")
 	@ResponseBody
 	public List<CountryFlag> getCountriesForContinent(@PathVariable String continentName)
