@@ -16,3 +16,13 @@ Can execute this maven project by building:
  I have used two models one for CountryFlag and Continent.
  I have used a Controller to map the URL's and render the response.
  I have used a service class to hold the logic.
+
+
+List of Items To be Done: Tried to use this: but unable to see anything on localhost:8080/metrics or localhost:8080/actuator
+
+Metrics can be logged using this Spring boot Actuator:
+
+<dependency>
+ <groupId>org.springframework.boot</groupId>
+ <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
